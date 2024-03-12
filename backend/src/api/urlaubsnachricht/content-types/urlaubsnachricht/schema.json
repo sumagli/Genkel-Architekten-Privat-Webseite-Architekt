@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "urlaubsnachrichts",
+  "info": {
+    "singularName": "urlaubsnachricht",
+    "pluralName": "urlaubsnachrichts",
+    "displayName": "Urlaubsnachricht",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nachricht": {
+      "type": "text"
+    },
+    "Nachricht_Anzeigen": {
+      "type": "boolean"
+    }
+  }
+}

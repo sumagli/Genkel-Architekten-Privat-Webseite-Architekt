@@ -1,0 +1,36 @@
+.DataSecurity h1 {
+  padding-top: 100px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.DataSecurity h2 {
+  padding-top: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.DataSecurity p {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.DataSecurity {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+
+  color: white;
+
+}
+
+.Background {
+  background: #00315A;
+}
+
+.DataSecurity a {
+  text-decoration: none;
+  color: #ffffff;
+}

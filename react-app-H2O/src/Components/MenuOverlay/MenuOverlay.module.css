@@ -1,0 +1,101 @@
+.MenuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 45%;
+    /* Adjust width for the left part of the page */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* Blur effect for the background */
+    z-index: 1000;
+    /* Ensure it's on top of other content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 10%;
+    /* Spacing from the right edge */
+    box-sizing: border-box;
+}
+
+.MenuOverlayContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+.MenuOverlayContentItem {
+    margin: 10px 0;
+
+    /* Spacing between items */
+}
+
+.MenuOverlayContentItem a {
+
+    text-decoration: none;
+    color: #ffffff81;
+    /* Link color */
+    font-size: 20px;
+    /* Link size */
+    transition: color 0.1s ease-in-out;
+}
+
+.MenuOverlayContentItem a:hover {
+    color: #ffffff;
+    /* Link hover color */
+}
+
+.MenuOverlayIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+
+    }
+}
+
+.MenuOverlay.open {
+    animation: slideIn 0.5s forwards;
+}
+
+.MenuOverlay.closed {
+    animation: slideOut 0.5s forwards;
+}
+
+.MenuOverlayRight {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+
+    .MenuOverlay {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,101 @@
+.NewFooter {
+  font-family: 'Poppins', sans-serif;
+  z-index: -10;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.footerNotFixed {
+  position: relative;
+}
+
+.footer hr {
+  margin-left: 100px;
+  margin-right: 100px;
+  border-color: #FFF;
+  border-style: solid;
+  border-width: 1px;
+}
+
+
+.footer h1 {
+  padding-top: 20px;
+  margin: 0;
+  text-align: center;
+  color: #FFF;
+
+}
+
+.footer a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.footerContent {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #FFF;
+}
+
+.fixed_footer {
+  width: 100%;
+  height: 350px;
+  background: #111;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+
+  p {
+    color: #696969;
+    column-count: 2;
+    column-gap: 50px;
+    font-size: 1em;
+    font-weight: 300;
+  }
+}
+
+.blackbar {
+  height: 500px;
+  background: #00315A;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.iconLink {
+  display: flex;
+  align-items: center;
+  /* This will vertically center the icon */
+  justify-content: center;
+  /* This will horizontally center the icon */
+  /* Set the dimensions of the anchor tag as needed */
+
+  /* Example height */
+  color: #FFF;
+
+}
+
+@media (max-width: 768px) {
+
+  .footerContent h1,
+  .footerContent h2,
+  .footerContent p {
+    font-size: 0.7em;
+    /* Adjust the font size as needed */
+  }
+
+  .blackbar {
+    height: 420px;
+
+  }
+
+}

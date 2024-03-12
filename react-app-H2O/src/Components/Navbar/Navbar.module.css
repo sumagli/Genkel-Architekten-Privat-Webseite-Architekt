@@ -1,0 +1,106 @@
+.navbar {
+  padding: 0.5rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background-color 0.3s, backdrop-filter 0.3s;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.6);
+
+  backdrop-filter: blur(10px);
+}
+
+.topBar {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.placeholder {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.navbar li {
+  color: #fff;
+}
+
+.navbar svg {
+  position: relative;
+  top: 2px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hr {
+  margin-left: 50px;
+  margin-right: 50px;
+  border-color: #FFF;
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Fade-out effect */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s ease-in forwards;
+}
+
+@media (min-width: 768px) {
+  .navbar ul {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar ul {
+    gap: 15rem;
+  }
+}

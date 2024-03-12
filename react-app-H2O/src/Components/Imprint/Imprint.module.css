@@ -1,0 +1,43 @@
+.imprint h1 {
+  padding-top: 100px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.imprint h2 {
+  padding-top: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.imprint p {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.imprint {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  color: white;
+}
+
+.Background {
+  background: #00315A;
+}
+
+.TopPart {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+@media (max-width: 768px) {
+  .TopPart {
+    flex-direction: column;
+  }
+
+
+}
