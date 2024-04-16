@@ -1,0 +1,71 @@
+/* News.module.css */
+
+/* News.module.css */
+
+.newsContainer2 {
+
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  z-index: 10;
+  background: #ffffff;
+  padding-top: 50px;
+}
+
+.newsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Maintains space between news items */
+  /* No need for additional padding here if .newsContainer2 has sufficient padding */
+  z-index: 20; /* Ensures this container and its children (news items) are above the footer */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.newsItem {
+  display: flex; /* Changed to flex to align items side by side */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  background-color: white;
+
+}
+
+.newsImage {
+  width: 500px; /* Adjusted width */
+  height: 100%; /* Changed to 100% to fill the height */
+  object-fit: cover;
+}
+
+.newsContent {
+  padding: 15px;
+  flex: 1; /* Added to fill the remaining space */
+}
+
+.newsTitle, .newsDate, .newsShortText, .newsLongText {
+  margin: 0 0 10px 0; /* Adjusted margins */
+}
+
+.newsLink {
+  display: inline-block;
+  background-color: #ffffff;
+  color: rgb(70, 66, 126);
+  text-decoration: none;
+
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.showMoreButton{
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: rgb(70, 66, 126);
+  border: 1px solid rgb(70, 66, 126);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
