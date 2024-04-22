@@ -1,0 +1,28 @@
+.Projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 100px;
+
+  justify-content: center;
+  align-items: center;
+z-index: 10;
+}
+
+.projectItem {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  background-color: white;
+}
+
+.projectItem:hover {
+  transform: scale(1.05);
+}
+
+.projectImage {
+  width: 500px;
+  height: auto;
+}

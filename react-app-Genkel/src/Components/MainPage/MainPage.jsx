@@ -73,8 +73,8 @@ const MainPage = ({ isVisible, blur }) => {
         <div
           className={`${styles.uperTitle} ${
             isVisible
-              ? styles.animateonvisiblecenteredText
-              : styles.animateOutCenteredText
+              ? styles.animateonvisibleuperTitle
+              : styles.animateOutUperTitle
           }`}
         >
           {ImageUrls[activeStep].title}

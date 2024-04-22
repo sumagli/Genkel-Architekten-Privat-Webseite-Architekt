@@ -35,6 +35,8 @@
 }
 
 
+
+
 .scrolldownIndicator {
   position: absolute;
   left: 50%;
@@ -45,6 +47,10 @@
   z-index: 1;
   animation: bounce 1.5s ease-in-out infinite;
   border-radius: 10px;
+}
+
+.additonallStuff{
+  padding: 1%;
 }
 
 

@@ -40,7 +40,7 @@ const Navbar = ({ setOverlay, overlay, mainPage }: NavbarProps) => {
       <nav className={styles.topBar}>
         <ul>
           <li>
-            <a href="/Aktuelles" className={styles.iconLink}>
+            <a href="/" className={styles.iconLink}>
               Aktuelles
             </a>
           </li>
