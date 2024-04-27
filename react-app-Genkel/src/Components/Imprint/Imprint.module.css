@@ -21,11 +21,11 @@
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .Background {
-  background: #00315A;
+  background: #ffffff;
 }
 
 .TopPart {

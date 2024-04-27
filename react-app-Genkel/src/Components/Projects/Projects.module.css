@@ -24,5 +24,8 @@ z-index: 10;
 
 .projectImage {
   width: 500px;
-  height: auto;
+  height: 350px;
+  object-fit: cover; /* This will cover the area of the box without distorting the aspect ratio */
+  object-position: center; /* This will center the image within the box */
 }
+

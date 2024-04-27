@@ -22,33 +22,31 @@ const NewFooter = ({ mainPage }: FooterProps) => {
         <div className={styles.footerContent}>
           <div className={styles.links}>
             <h3>Seitenmenü:</h3>
-            {mainPage && (
-              <div>
-                <a href="#Directions">Anfahrt</a>
-                <br />
-                <a href="#Pricing">Preise</a>
-                <br />
-                <a href="#Team">Team</a>
-                <br /> <br />
-              </div>
-            )}
+
+            <div>
+              <a href="/">Aktuelles</a>
+              <br />
+              <a href="/Projekte">Projekte</a>
+              <br />
+              <a href="/Bueroprofil">Büroprofil</a>
+              <br />
+              <a href="/Vita">Vita</a>
+              <br />
+              <a href="/Partner">Partner</a>
+              <br /> <br />
+            </div>
+
             <a href="/Impressum">Impressum</a>
             <br />
             <a href="/Datenschutz">Datenschutz</a>
+            <br />
+            <a href="/Credit">Credit</a>
           </div>
           <div>
             <h3>Kontakt:</h3>
             <p>Heinrich-Baumann-Straße 7b</p>
             <p>70190 Stuttgart</p>
             <p>genkel@genkelarchitekten.com</p>
-            <a
-              href="https://www.instagram.com/haarzweiooh_stuttgart/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.iconLink}
-            >
-              <FaInstagram color="white" size="32px" />
-            </a>
           </div>
         </div>
         <hr />

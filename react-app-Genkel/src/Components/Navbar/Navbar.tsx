@@ -51,18 +51,18 @@ const Navbar = ({ setOverlay, overlay, mainPage }: NavbarProps) => {
             </a>
           </li>
           <li>
-            <a href="/Ueber" className={styles.iconLink}>
-              Über Genkel Architekten
+            <a href="/Bueroprofil" className={styles.iconLink}>
+              Büroprofil
             </a>
           </li>
           <li>
-            <a href="/Lebenslauf" className={styles.iconLink}>
-              Lebenslauf
+            <a href="/Vita" className={styles.iconLink}>
+              Vita
             </a>
           </li>
           <li>
-            <a href="/Kontakt" className={styles.iconLink}>
-              Kontakt
+            <a href="/Partner" className={styles.iconLink}>
+              Partner
             </a>
           </li>
         </ul>

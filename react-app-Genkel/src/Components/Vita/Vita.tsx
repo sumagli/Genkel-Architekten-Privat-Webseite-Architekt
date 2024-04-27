@@ -38,7 +38,7 @@ const Vita = ({ email, name, profession, image, timelineEvents }: any) => {
         <div className={styles.Vita}>
           <h1>Vita</h1>
 
-          <Timeline position="alternate">
+          <Timeline>
             {timelineEvents.map((event: any, index: any) => (
               <TimelineItem key={index}>
                 <TimelineOppositeContent color="text.secondary">
@@ -48,7 +48,18 @@ const Vita = ({ email, name, profession, image, timelineEvents }: any) => {
                   <TimelineDot />
                   {index < timelineEvents.length - 1 && <TimelineConnector />}
                 </TimelineSeparator>
-                <TimelineContent>{event.content}</TimelineContent>
+                <TimelineContent>
+                  {event.leistungsphase}
+                  <br />
+                  {event.projekt}
+                  <br />
+                  {event.partner}
+                  <br />
+                  {event.rendering}
+                  <br />
+                  <br />
+                  <br />
+                </TimelineContent>
               </TimelineItem>
             ))}
           </Timeline>

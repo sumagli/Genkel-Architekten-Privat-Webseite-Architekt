@@ -27,12 +27,12 @@ export default function Projects({ projects }: ProjectsArray) {
             onClick={() => handleClick(item.title)}
           >
             <img
-              src={item.image[0]}
+              src={item.image[0].imageLink}
               alt={item.name}
               className={styles.projectImage}
             />
-            <h4>{item.name}</h4>
-            <p>{item.title}</p>
+            <h4>{item.title}</h4>
+            <p>{item.subtitle}</p>
             <p>{item.partner}</p>
           </div>
         ))}

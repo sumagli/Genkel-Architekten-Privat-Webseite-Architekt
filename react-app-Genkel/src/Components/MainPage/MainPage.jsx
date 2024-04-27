@@ -3,20 +3,22 @@ import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import SwipeableViews from "react-swipeable-views-react-18-fix";
 import { autoPlay } from "react-swipeable-views-utils";
+import IconButton from "@mui/material/IconButton"; // Use IconButton for direct icon interaction
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import styles from "./MainPage.module.css";
 import Typography from "@mui/material/Typography";
-import { useVacationMessage, useMainPageImages } from "../../Helper/service.ts";
 import unilever from "../../Assats/Images/home/65_001_Unilever_002_H.jpg";
 import RoeckerGork from "../../Assats/Images/home/Röcker Gork (4).jpg";
 import test2 from "../../Assats/Images/home/IMG_9666.jpg";
 import test3 from "../../Assats/Images/home/P1080211.jpg";
+import MobileStepper from "@mui/material/MobileStepper";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const MainPage = ({ isVisible, blur }) => {
+const MainPage = ({ isVisible }) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const vacationMessage = useVacationMessage();
 
   const ImageUrls = [
     {
@@ -25,6 +27,7 @@ const MainPage = ({ isVisible, blur }) => {
       title: "Unilever",
       subtitle: "Hamburg",
       partner: "Benisch",
+      link: "/projects/unilever",
     },
     {
       src: RoeckerGork,
@@ -32,6 +35,7 @@ const MainPage = ({ isVisible, blur }) => {
       title: "Jugendhaus",
       subtitle: "Balingen",
       partner: "Benisch",
+      link: "www.google.com",
     },
     {
       src: test2,
@@ -39,6 +43,7 @@ const MainPage = ({ isVisible, blur }) => {
       title: "Hochschule der Medien",
       subtitle: "Stuttgart",
       partner: "Benisch",
+      link: "/projects/unilever",
     },
     {
       src: test3,
@@ -46,8 +51,21 @@ const MainPage = ({ isVisible, blur }) => {
       title: "Tolles Gebauede",
       subtitle: "Stuttgart",
       partner: "Benisch",
+      link: "/projects/unilever",
     },
   ];
+
+  const maxSteps = ImageUrls.length;
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps); // Wrap to the first image when reaching the end
+  };
+
+  const handleBack = () => {
+    setActiveStep(
+      (prevActiveStep) => (prevActiveStep - 1 + maxSteps) % maxSteps
+    );
+  };
 
   return (
     <Box className={styles.slideshowContainer}>
@@ -69,6 +87,52 @@ const MainPage = ({ isVisible, blur }) => {
           </div>
         ))}
       </AutoPlaySwipeableViews>
+      <div>
+        <Box className={styles.stepperBox}>
+          <MobileStepper
+            steps={maxSteps}
+            position="static"
+            activeStep={activeStep}
+            sx={{
+              color: "white",
+              backgroundColor: "transparent",
+              width: "auto",
+            }}
+          />
+        </Box>
+        <IconButton
+          onClick={handleBack}
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: 16,
+
+            backgroundColor: "rgba(255, 255, 255, 0.7)",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 1)",
+            },
+            fontSize: "2rem",
+          }}
+        >
+          <KeyboardArrowLeft fontSize="inherit" />
+        </IconButton>
+        <IconButton
+          onClick={handleNext}
+          sx={{
+            position: "absolute",
+            top: "50%",
+            right: 16,
+
+            backgroundColor: "rgba(255, 255, 255, 0.7)",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 1)",
+            },
+            fontSize: "2rem",
+          }}
+        >
+          <KeyboardArrowRight fontSize="inherit" />
+        </IconButton>
+      </div>
       <div className={styles.textContent}>
         <div
           className={`${styles.uperTitle} ${

@@ -34,7 +34,7 @@
 
 .newsImage {
   width: 500px; /* Adjusted width */
-  height: 100%; /* Changed to 100% to fill the height */
+  max-height: 300px; /* Changed to 100% to fill the height */
   object-fit: cover;
 }
 
