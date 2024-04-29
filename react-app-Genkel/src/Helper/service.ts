@@ -236,19 +236,19 @@ export const usePartners = () => {
   return vitaData;
 };
 
-export const useVitaSabine = () => {
+export const useOfficeProfile = () => {
   const [vitaData, setVitaData] = React.useState([]);
 
   React.useEffect(() => {
     const fetchImages = async () => {
       try {
         const response = await axios.get(
-          "https://api.storyblok.com/v2/cdn/stories/lebenslauf/lebenslauf-sabine?version=draft&token=EH3r7BBXGHB0339e79k4FQtt&cv=1709755846"
+          "https://api.storyblok.com/v2/cdn/stories/buero-profil?version=draft&token=NVIqECUf49USBq8O93Z3SAtt&cv=1714418311"
         );
         const listData = response.data.story.content.Eintraege.map(
           (item: any) => ({
-            year: item.Jahr,
-            content: item.Text,
+            headline: item.Ueberschrift,
+            text: item.Text,
           })
         );
         setVitaData(listData);
@@ -263,19 +263,23 @@ export const useVitaSabine = () => {
   return vitaData;
 };
 
-export const useVitaIlona = () => {
+export const useNews = () => {
   const [vitaData, setVitaData] = React.useState([]);
 
   React.useEffect(() => {
     const fetchImages = async () => {
       try {
         const response = await axios.get(
-          "https://api.storyblok.com/v2/cdn/stories/lebenslauf/lebenslauf-ilona?version=draft&token=EH3r7BBXGHB0339e79k4FQtt&cv=1709756012"
+          "https://api.storyblok.com/v2/cdn/stories/news?version=draft&token=NVIqECUf49USBq8O93Z3SAtt&cv=1714419373"
         );
         const listData = response.data.story.content.Eintraege.map(
           (item: any) => ({
-            year: item.Jahr,
-            content: item.Text,
+            picture: item.Bild,
+            title: item.Titel,
+            date: item.Datum,
+            text: item.Text,
+            link: item.Link,
+            linkText: item.LinkText,
           })
         );
         setVitaData(listData);

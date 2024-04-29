@@ -9,50 +9,16 @@ import ImageComponent from "../ImageComponent/ImageComponent";
 import { ImageComponentProps } from "../SpecificProject/SpecificProject";
 import oe1 from "../../Assats/Images/news/oesterfeld.jpg";
 import raum from "../../Assats/Images/news/raum.jpg";
+import { useNews } from "../../Helper/service";
 
 interface HomeProps {
   overlay: boolean;
   projects: ProjectsArray;
 }
 
-const exampleNewsData = [
-  {
-    picture: oe1,
-    date: "	06.12.2023",
-    title: "Österfeldschule",
-    shortText:
-      "Wir machen ein neues Projekt mit asp architekten. Die Österfeldschule in Stutgart Vaihinge",
-    longText: "",
-    link: "http://localhost:3000/projekte/Jugendhaus",
-    linkText: "Zum Projekt",
-  },
-  {
-    picture: raum,
-    date: "	23.10.2023",
-    title: "Umzug",
-    shortText:
-      "Neue Büroräume + neue Adresse, ab sofort kommt Post hier an Heinrich-Baumann-Str. 7b 70190 Stuttgart",
-    longText: "",
-  },
-  {
-    picture: testPicture,
-    date: "2023-03-20",
-    title: "Another Important Update",
-    shortText: "Brief overview of another important news update.",
-    longText:
-      "This is the extended version of the news update. It goes into great detail about the subject matter, providing valuable insights and information.",
-  },
-  {
-    picture: testPicture,
-    date: "2023-03-20",
-    title: "Another Important Update",
-    shortText: "Brief overview of another important news update.",
-    longText:
-      "This is the extended version of the news update. It goes into great detail about the subject matter, providing valuable insights and information.",
-  },
-];
-
 export default function Home({ overlay, projects }: HomeProps) {
+  const news = useNews();
+
   const specificProjects = projects.projects
     .filter((project) => project.mainPagePosition !== 0)
     .sort((a, b) => a.mainPagePosition - b.mainPagePosition);
@@ -85,7 +51,7 @@ export default function Home({ overlay, projects }: HomeProps) {
         <ImageComponent ImageComponentProps={helper} />
       </div>
       <div id="Directions">
-        <News newsData={exampleNewsData} />
+        <News newsData={news} />
       </div>
       <NewFooter mainPage={false} />
     </div>

@@ -3,13 +3,20 @@ import styles from "./News.module.css";
 
 // Define the structure of a single news item
 interface NewsItem {
-  picture: string;
+  picture: PictureItem;
   date: string;
   title: string;
-  shortText: string;
-  longText: string;
-  link?: string;
+  text: string;
+  link?: URL;
   linkText?: string;
+}
+
+interface PictureItem {
+  filename: string;
+}
+
+interface URL {
+  url: string;
 }
 
 interface NewsItemProps {
@@ -50,20 +57,20 @@ const News: React.FC<NewsProps> = ({ newsData }) => {
 
 // NewsItem component
 const NewsItemComponent: React.FC<NewsItemProps> = ({ newsItem }) => {
+  console.log(newsItem);
   return (
     <div className={styles.newsItem}>
       <img
-        src={newsItem.picture}
+        src={newsItem.picture.filename}
         alt={newsItem.title}
         className={styles.newsImage}
       />
       <div className={styles.newsContent}>
         <h3 className={styles.newsTitle}>{newsItem.title}</h3>
         <p className={styles.newsDate}>{newsItem.date}</p>
-        <p className={styles.newsShortText}>{newsItem.shortText}</p>
-        <p className={styles.newsLongText}>{newsItem.longText}</p>
+        <p className={styles.newsShortText}>{newsItem.text}</p>
         {newsItem.link && (
-          <a href={newsItem.link} className={styles.newsLink}>
+          <a href={newsItem.link.url} className={styles.newsLink}>
             {newsItem.linkText && newsItem.linkText}
           </a>
         )}
