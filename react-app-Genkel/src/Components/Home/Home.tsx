@@ -4,7 +4,7 @@ import MainPage from "../MainPage/MainPage";
 import News from "../News/News";
 import testPicture from "../../Assats/Images/home/P1080211.jpg";
 import NewFooter from "../NewFooter/NewFooter";
-import { ProjectsArray } from "../../App";
+import { Project, ProjectsArray } from "../../App";
 import ImageComponent from "../ImageComponent/ImageComponent";
 import { ImageComponentProps } from "../SpecificProject/SpecificProject";
 import oe1 from "../../Assats/Images/news/oesterfeld.jpg";
@@ -13,13 +13,13 @@ import { useNews } from "../../Helper/service";
 
 interface HomeProps {
   overlay: boolean;
-  projects: ProjectsArray;
+  projects: Project[];
 }
 
 export default function Home({ overlay, projects }: HomeProps) {
   const news = useNews();
 
-  const specificProjects = projects.projects
+  const specificProjects = projects
     .filter((project) => project.mainPagePosition !== 0)
     .sort((a, b) => a.mainPagePosition - b.mainPagePosition);
 

@@ -66,7 +66,7 @@ const ImageComponent = ({ ImageComponentProps }) => {
       </AutoPlaySwipeableViews>
       <div className={styles.textContent}>
         <div className={styles.uperTitle}>
-          {getTextProps().link == "-1" ? (
+          {"getTextProps().link" == "-1" ? (
             getTextProps().title
           ) : (
             <a style={{ cursor: "pointer" }} onClick={handleClick}>
