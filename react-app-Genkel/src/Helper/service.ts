@@ -300,31 +300,31 @@ export const useProjects = () => {
 
   React.useEffect(() => {
     const fetchProjects = async () => {
-      console.log("projectsData")
       try {
         const response = await axios.get(
           "https://api.storyblok.com/v2/cdn/stories/projekte?version=draft&token=NVIqECUf49USBq8O93Z3SAtt&cv=1714476295"
         );
-        const projectsData: Project[] = response.data.story.content.Projekte.map((proj: any) => ({
-          name: proj.title || proj.Title,
-          image: proj.Bilder.map((img: any) => ({
-            imageLink: img.Bild.filename,
-            photoBy: img.Fotograph
-          })),
-          title: proj.title,
-          subtitle: proj.subtitle,
-          partner: proj.partner,
-          buildingTime: proj.buildingTime,
-          bauherr: proj.bauherr,
-          Taetigkeitsfelder: proj.Taetigkeitsfelder,
-          BeschreibungMaßnahme: proj.BeschreibungMasnahme,
-          link: proj.link.url ,
-          info: proj.info,
-          mainPagePosition: parseInt(proj.PositionMainpage)
-        }));
-        console.log(projectsData)
-        setProjects(projectsData );
-       
+        console.log(response);
+        const projectsData: Project[] =
+          response.data.story.content.Projekte.map((proj: any) => ({
+            name: proj.title || proj.Title,
+            image: proj.Bilder.map((img: any) => ({
+              imageLink: img.Bild.filename,
+              photoBy: img.Fotograph,
+            })),
+            title: proj.title,
+            subtitle: proj.subtitle,
+            partner: proj.partner,
+            buildingTime: proj.buildingTime,
+            bauherr: proj.bauherr,
+            Taetigkeitsfelder: proj.Taetigkeitsfelder,
+            BeschreibungMaßnahme: proj.BeschreibungMasnahme,
+            link: proj.link?.url, // Using optional chaining here
+            info: proj.info,
+            mainPagePosition: parseInt(proj.PositionMainpage),
+          }));
+
+        setProjects(projectsData);
       } catch (error) {
         console.error("Error fetching projects:", error);
       }

@@ -35,7 +35,6 @@ const ImageComponent = ({ ImageComponentProps }) => {
   };
 
   const handleClick = () => {
-    console.log(getTextProps().link);
     const helper = getTextProps();
     if (helper.link == "") {
       window.location.href = `/projekte/${helper.title}`;

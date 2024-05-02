@@ -54,21 +54,17 @@ export interface ProjectsArray {
 function App() {
   const [overlay, setOverlay] = React.useState(false);
   const [showOverlay, setShowOverlay] = React.useState(false);
-  const joernTimeline = useVitaJoern();
-  console.log("test")
-  console.log(joernTimeline)
   const data = useProjects();
-  console.log(data)
+  const joernTimeline = useVitaJoern();
+  console.log(data);
 
   React.useEffect(() => {
     if (!overlay) {
-      setTimeout(() => setShowOverlay(false), 300); // 300ms matches the CSS animation duration
+      setTimeout(() => setShowOverlay(false), 300);
     } else {
       setShowOverlay(true);
     }
   }, [overlay]);
-
-  
 
   return (
     <BrowserRouter>

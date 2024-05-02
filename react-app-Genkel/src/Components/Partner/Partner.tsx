@@ -3,7 +3,7 @@ import styles from "./Partner.module.css";
 import NewFooter from "../NewFooter/NewFooter";
 import { usePartners } from "../../Helper/service";
 
-interface Partner {
+export interface Partner {
   name: string;
   contacts: string[];
   phone: string;
@@ -43,7 +43,6 @@ const a = [
 
 export default function Partner() {
   const partners: Partner[] = usePartners();
-  console.log(partners)
 
   return (
     <div>

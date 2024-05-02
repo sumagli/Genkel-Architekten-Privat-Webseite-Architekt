@@ -15,6 +15,7 @@ import ImageComponent from "../ImageComponent/ImageComponent";
 import test from "../../Assats/Images/home/P1080211.jpg";
 import { ProjectsArray } from "../../App";
 import { useParams } from "react-router-dom";
+import { useProjects } from "../../Helper/service";
 
 export interface ImageComponentTextProps {
   title: string;
@@ -39,9 +40,9 @@ export default function SpecificProject({ projects }: ProjectsArray) {
   }, []);
 
   let { title } = useParams();
-  const specificProject = projects.filter((project) => project.title === title);
+  const data = useProjects();
+  const specificProject = data.filter((project) => project.title === title);
   const singleProject = specificProject[0];
-  console.log(specificProject);
 
   const helper: ImageComponentProps = {
     imagePlus: singleProject.image,
