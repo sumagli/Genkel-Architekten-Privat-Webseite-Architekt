@@ -5,6 +5,7 @@ import NewFooter from "../NewFooter/NewFooter";
 import ImageComponent from "../ImageComponent/ImageComponent";
 import { ProjectsArray } from "../../App";
 import { useParams } from "react-router-dom";
+import { useProjects } from "../../Helper/service";
 
 export interface ImageComponentTextProps {
   title: string;
