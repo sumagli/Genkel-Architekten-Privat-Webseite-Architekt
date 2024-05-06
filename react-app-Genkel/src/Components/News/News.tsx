@@ -57,7 +57,6 @@ const News: React.FC<NewsProps> = ({ newsData }) => {
 
 // NewsItem component
 const NewsItemComponent: React.FC<NewsItemProps> = ({ newsItem }) => {
-  console.log(newsItem);
   return (
     <div className={styles.newsItem}>
       <img

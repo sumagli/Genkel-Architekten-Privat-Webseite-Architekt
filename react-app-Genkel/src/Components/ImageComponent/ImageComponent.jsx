@@ -14,7 +14,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const ImageComponent = ({ ImageComponentProps }) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = ImageComponentProps.imagePlus.length;
+  const maxSteps = ImageComponentProps?.imagePlus?.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
@@ -27,7 +27,7 @@ const ImageComponent = ({ ImageComponentProps }) => {
   };
 
   const getTextProps = () => {
-    return ImageComponentProps.ImageComponentTextProps.length === 1
+    return ImageComponentProps?.ImageComponentTextProps.length === 1
       ? ImageComponentProps.ImageComponentTextProps[0]
       : ImageComponentProps.ImageComponentTextProps[
           activeStep % ImageComponentProps.ImageComponentTextProps.length
@@ -35,7 +35,6 @@ const ImageComponent = ({ ImageComponentProps }) => {
   };
 
   const handleClick = () => {
-    console.log(getTextProps().link);
     const helper = getTextProps();
     if (helper.link == "") {
       window.location.href = `/projekte/${helper.title}`;
@@ -53,7 +52,7 @@ const ImageComponent = ({ ImageComponentProps }) => {
         enableMouseEvents
         interval={5000}
       >
-        {ImageComponentProps.imagePlus.map((step, index) => (
+        {ImageComponentProps?.imagePlus?.map((step, index) => (
           <div key={index}>
             <Box
               component="img"
@@ -64,9 +63,11 @@ const ImageComponent = ({ ImageComponentProps }) => {
           </div>
         ))}
       </AutoPlaySwipeableViews>
+      {getTextProps() != undefined &&(
       <div className={styles.textContent}>
+        
         <div className={styles.uperTitle}>
-          {"getTextProps().link" == "-1" ? (
+          {getTextProps()?.link == "-1" ? (
             getTextProps().title
           ) : (
             <a style={{ cursor: "pointer" }} onClick={handleClick}>
@@ -93,11 +94,13 @@ const ImageComponent = ({ ImageComponentProps }) => {
           )}
         </div>
       </div>
-      {ImageComponentProps.imagePlus[activeStep].photoBy && (
-        <div className={styles.PhotoBy}>
-          Foto: {ImageComponentProps.imagePlus[activeStep].photoBy}
-        </div>
-      )}
+    )}
+     { ImageComponentProps && ImageComponentProps.imagePlus && ImageComponentProps.imagePlus[activeStep] && ImageComponentProps.imagePlus[activeStep].photoBy && (
+  <div className={styles.PhotoBy}>
+    Foto: {ImageComponentProps.imagePlus[activeStep].photoBy}
+  </div>
+)}
+
 
       <IconButton
         onClick={handleBack}

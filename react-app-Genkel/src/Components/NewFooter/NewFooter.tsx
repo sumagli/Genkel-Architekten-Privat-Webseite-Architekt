@@ -46,7 +46,7 @@ const NewFooter = ({ mainPage }: FooterProps) => {
             <h3>Kontakt:</h3>
             <p>Heinrich-Baumann-Straße 7b</p>
             <p>70190 Stuttgart</p>
-            <p>genkel@genkelarchitekten.com</p>
+            <a href="mailto:genkel@genkelarchitekten.com">genkel@genkelarchitekten.com</a>
           </div>
         </div>
         <hr />

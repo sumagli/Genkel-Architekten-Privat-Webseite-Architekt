@@ -43,7 +43,6 @@ const a = [
 
 export default function Partner() {
   const partners: Partner[] = usePartners();
-  console.log(partners)
 
   return (
     <div>

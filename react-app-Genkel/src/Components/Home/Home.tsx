@@ -43,7 +43,7 @@ export default function Home({ overlay, projects }: HomeProps) {
       link: project.link,
     });
   });
-  console.log(helper);
+
 
   return (
     <div className={styles.home}>

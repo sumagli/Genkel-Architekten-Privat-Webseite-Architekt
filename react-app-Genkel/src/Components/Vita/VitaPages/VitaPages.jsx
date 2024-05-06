@@ -56,7 +56,7 @@ const VitaPages = ({
               : styles.animateOutUperTitle
           }`}
         >
-          {uperTitle}
+          {<a className={styles.email} href="mailto:genkel@genkelarchitekten.com">genkel@genkelarchitekten.com</a>}
         </div>
         <div
           className={`${styles.centeredText} ${

@@ -8,6 +8,11 @@
     z-index: 1;
 }
 
+.email{
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .imageBox {
     width: 100%;
     /* Ensure the image spans the full width of its container */

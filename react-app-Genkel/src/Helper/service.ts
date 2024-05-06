@@ -300,29 +300,27 @@ export const useProjects = () => {
 
   React.useEffect(() => {
     const fetchProjects = async () => {
-      console.log("projectsData")
       try {
         const response = await axios.get(
           "https://api.storyblok.com/v2/cdn/stories/projekte?version=draft&token=NVIqECUf49USBq8O93Z3SAtt&cv=1714476295"
         );
         const projectsData: Project[] = response.data.story.content.Projekte.map((proj: any) => ({
-          name: proj.title || proj.Title,
+          name: proj.Title,
           image: proj.Bilder.map((img: any) => ({
             imageLink: img.Bild.filename,
             photoBy: img.Fotograph
           })),
-          title: proj.title,
-          subtitle: proj.subtitle,
-          partner: proj.partner,
-          buildingTime: proj.buildingTime,
-          bauherr: proj.bauherr,
+          title: proj.Title,
+          subtitle: proj.Bauort,
+          partner: proj.Partner,
+          buildingTime: proj.Bauzeit,
+          bauherr: proj.Bauherr,
           Taetigkeitsfelder: proj.Taetigkeitsfelder,
           BeschreibungMaßnahme: proj.BeschreibungMasnahme,
-          link: proj.link.url ,
-          info: proj.info,
+          link: proj.Link.url,
+          info: proj.Text,
           mainPagePosition: parseInt(proj.PositionMainpage)
         }));
-        console.log(projectsData)
         setProjects(projectsData );
        
       } catch (error) {

@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
-import { BiMenu } from "react-icons/bi";
-import { BsFillTelephoneFill } from "react-icons/bs";
-import { FaHome } from "react-icons/fa";
 
 interface NavbarProps {
   setOverlay: (overlay: boolean) => void;

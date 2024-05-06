@@ -55,9 +55,9 @@ function App() {
   const [overlay, setOverlay] = React.useState(false);
   const [showOverlay, setShowOverlay] = React.useState(false);
   const joernTimeline = useVitaJoern();
-  console.log("test")
-  console.log(joernTimeline)
+
   const data = useProjects();
+  console.log("data")
   console.log(data)
 
   React.useEffect(() => {
