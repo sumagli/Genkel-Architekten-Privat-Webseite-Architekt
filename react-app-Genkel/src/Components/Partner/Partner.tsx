@@ -22,34 +22,36 @@ export interface PartnerProps {
 }
 
 export default function Partner() {
-  const { partners, friends } = usePartners() as PartnerProps; // Assuming usePartners returns an object of type PartnerProps
+  const { partners, friends } = usePartners(); // Assume it returns { partners, friends }
 
   return (
     <div>
       <div className={styles.partner}>
         <h1>Referenzen & Kontakte</h1>
-        {partners.map(
-          (
-            partner,
-            index // Loop through partners array
-          ) => (
-            <div key={index} className={styles.partnerItem}>
-              <h2>{partner.name}</h2>
-              {partner.contacts.map((contact, i) => (
-                <p key={i}>{contact}</p>
-              ))}
-              <p>Telefon: {partner.phone}</p>
-              {partner.projects && <p>Projekt: {partner.projects}</p>}
-              {partner.website && <a href={partner.website}>Website</a>}
-            </div>
-          )
-        )}
+        {partners.map((partner, index) => (
+          <div
+            key={index}
+            className={styles.partnerItem}
+            style={{
+              animationName: index < 6 ? styles.fadeIn : styles.fadeInGroup,
+              animationDelay: index < 6 ? `${index * 0.3}s` : "1.8s", // Delay 0.3s increments for the first 6, 1.8s for the rest
+            }}
+          >
+            <h2>{partner.name}</h2>
+            {partner.contacts.map((contact, i) => (
+              <p key={i}>{contact}</p>
+            ))}
+            <p>Telefon: {partner.phone}</p>
+            {partner.projects && <p>Projekt: {partner.projects}</p>}
+            {partner.website && <a href={partner.website}>Website</a>}
+          </div>
+        ))}
 
         <h1 className={styles.friends}>Freunde & Partner</h1>
-        {friends.map((friends, index) => (
+        {friends.map((friend, index) => (
           <div key={index} className={styles.partnerItem}>
-            <h2>{friends.name}</h2>
-            {friends.website && <a href={friends.website}>Website</a>}
+            <h2>{friend.name}</h2>
+            {friend.website && <a href={friend.website}>Website</a>}
           </div>
         ))}
       </div>

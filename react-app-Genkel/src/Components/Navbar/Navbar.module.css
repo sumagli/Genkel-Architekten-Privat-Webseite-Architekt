@@ -93,14 +93,35 @@
   animation: fadeOut 0.5s ease-in forwards;
 }
 
-@media (min-width: 768px) {
-  .navbar ul {
-    gap: 2rem;
+.mobileMenu {
+  display: none;
+  display: flex;
+}
+
+.mobileMenu {
+  display: none; 
+  align-items: center; 
+  justify-content: space-between; 
+  width: 100%; 
+}
+
+.desktopMenuItems {
+  display: flex; 
+  gap: 6rem; 
+}
+
+
+@media (max-width: 767px) {
+  .desktopMenuItems {
+    display: none; 
+  }
+
+  .mobileMenu {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    gap: 6rem; 
   }
 }
 
-@media (min-width: 1024px) {
-  .navbar ul {
-    gap: 8rem;
-  }
-}
+

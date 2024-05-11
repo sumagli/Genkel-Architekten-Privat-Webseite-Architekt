@@ -24,6 +24,7 @@ export default function Projects({ projects }: ProjectsArray) {
             key={index}
             className={styles.projectItem}
             onClick={() => handleClick(item.title)}
+            style={{ animationDelay: `${index * 0.3}s` }} // Each project fades in 0.1s after the previous one
           >
             <div className={styles.imageContainer}>
               <img

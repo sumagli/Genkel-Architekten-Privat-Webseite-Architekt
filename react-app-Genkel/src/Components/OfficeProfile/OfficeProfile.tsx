@@ -17,7 +17,11 @@ const OfficeProfile: React.FC = () => {
       <div className={styles.officeProfileContainer}>
         <h1>Genkel Architekten - Büroprofil</h1>
         {profile.map((section: ProfileSection, index: number) => (
-          <section key={index} className={styles.serviceSection}>
+          <section
+            key={index}
+            className={styles.serviceSection}
+            style={{ animationDelay: `${index * 0.5}s` }} // Add delay based on index
+          >
             <h2>{section.headline}</h2>
             <p>{section.text}</p>
           </section>

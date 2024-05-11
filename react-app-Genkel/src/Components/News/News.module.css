@@ -21,16 +21,29 @@
   padding-right: 20px;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .newsItem {
-  display: flex; /* Changed to flex to align items side by side */
+  display: flex;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 20;
   background-color: white;
-
+  opacity: 0;  /* Start hidden */
+  animation: fadeIn 0.8s ease forwards;  /* Animation triggers when item is rendered */
 }
+
 
 .image {
   position: relative; /* Needed for absolute positioning of children */

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./News.module.css";
 
 // Define the structure of a single news item
@@ -29,24 +29,36 @@ interface NewsProps {
   newsData: NewsItem[];
 }
 
-// News component
 const News: React.FC<NewsProps> = ({ newsData }) => {
-  // State to toggle the display of all news items
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(false); // State to manage whether all news items should be shown
+  const [visibleCount, setVisibleCount] = useState(3); // Initialize visibleCount to 3 to show the first three news items by default
+
+  useEffect(() => {
+    if (showAll) {
+      const interval = setInterval(() => {
+        setVisibleCount((current) => {
+          if (current < newsData.length) {
+            return current + 1; // Increment to show the next item
+          }
+          clearInterval(interval); // Clear interval when all items are displayed
+          return current;
+        });
+      }, 200); // Set interval to 200ms between each item's appearance
+      return () => clearInterval(interval); // Cleanup interval on component unmount
+    }
+  }, [showAll, newsData.length]); // Dependency array includes showAll and newsData.length
 
   return (
     <div className={styles.newsContainer2}>
       <div className={styles.newsContainer}>
         <h1 className={styles.newsTitle}>Aktuelles</h1>
-        {newsData
-          .slice(0, showAll ? newsData.length : 3)
-          .map((newsItem, index) => (
-            <NewsItemComponent key={index} newsItem={newsItem} />
-          ))}
+        {newsData.slice(0, visibleCount).map((newsItem, index) => (
+          <NewsItemComponent key={index} newsItem={newsItem} />
+        ))}
       </div>
       {!showAll && (
         <button
-          onClick={() => setShowAll(true)}
+          onClick={() => setShowAll(true)} // Set showAll to true when button is clicked
           className={styles.showMoreButton}
         >
           Mehr anzeigen
@@ -55,7 +67,6 @@ const News: React.FC<NewsProps> = ({ newsData }) => {
     </div>
   );
 };
-
 // NewsItem component with conditional "Read More" rendering
 const NewsItemComponent: React.FC<NewsItemProps> = ({ newsItem }) => {
   const [isReadMoreShown, setIsReadMoreShown] = useState(false);

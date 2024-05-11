@@ -57,8 +57,8 @@ function App() {
   const joernTimeline = useVitaJoern();
 
   const data = useProjects();
-  console.log("data")
-  console.log(data)
+  console.log("data");
+  console.log(data);
 
   React.useEffect(() => {
     if (!overlay) {
@@ -67,8 +67,6 @@ function App() {
       setShowOverlay(true);
     }
   }, [overlay]);
-
-  
 
   return (
     <BrowserRouter>
@@ -101,6 +99,9 @@ function App() {
                 overlay={overlay}
               />
               <Imprint />
+              {showOverlay && (
+                <MenuOverlay setOverlay={setOverlay} overlay={overlay} />
+              )}
             </>
           }
         />
@@ -115,6 +116,9 @@ function App() {
                 overlay={overlay}
               />
               <Partner />
+              {showOverlay && (
+                <MenuOverlay setOverlay={setOverlay} overlay={overlay} />
+              )}
             </>
           }
         />
@@ -129,6 +133,9 @@ function App() {
                 overlay={overlay}
               />
               <OfficeProfile />
+              {showOverlay && (
+                <MenuOverlay setOverlay={setOverlay} overlay={overlay} />
+              )}
             </>
           }
         />
@@ -143,6 +150,9 @@ function App() {
                 overlay={overlay}
               />
               <Credit />
+              {showOverlay && (
+                <MenuOverlay setOverlay={setOverlay} overlay={overlay} />
+              )}
             </>
           }
         />
@@ -156,6 +166,9 @@ function App() {
                 overlay={overlay}
               />
               <Projects projects={data} />
+              {showOverlay && (
+                <MenuOverlay setOverlay={setOverlay} overlay={overlay} />
+              )}
             </>
           }
         />
@@ -169,6 +182,9 @@ function App() {
                 overlay={overlay}
               />
               <SpecificProject projects={data} />
+              {showOverlay && (
+                <MenuOverlay setOverlay={setOverlay} overlay={overlay} />
+              )}
             </>
           }
         />
@@ -182,6 +198,9 @@ function App() {
                 overlay={overlay}
               />
               <DataSecurity />
+              {showOverlay && (
+                <MenuOverlay setOverlay={setOverlay} overlay={overlay} />
+              )}
             </>
           }
         />
@@ -201,6 +220,9 @@ function App() {
                 image={Lebenslauf}
                 timelineEvents={joernTimeline}
               />
+              {showOverlay && (
+                <MenuOverlay setOverlay={setOverlay} overlay={overlay} />
+              )}
             </>
           }
         />

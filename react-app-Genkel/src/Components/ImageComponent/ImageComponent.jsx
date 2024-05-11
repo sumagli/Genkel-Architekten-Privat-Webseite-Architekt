@@ -63,45 +63,55 @@ const ImageComponent = ({ ImageComponentProps }) => {
           </div>
         ))}
       </AutoPlaySwipeableViews>
-      {getTextProps() != undefined &&(
-      <div className={styles.textContent}>
-        
-        <div className={styles.uperTitle}>
-          {getTextProps()?.link == "-1" ? (
-            getTextProps().title
-          ) : (
-            <a style={{ cursor: "pointer" }} onClick={handleClick}>
-              {getTextProps().title}
-            </a>
-          )}
+      {getTextProps() != undefined && (
+        <div className={styles.textContent}>
+          <div
+            className={`${styles.uperTitle} ${
+              getTextProps().link !== "-1"
+                ? styles.fadeInAnimation
+                : styles.opacity1
+            }`}
+          >
+            {getTextProps().link !== "-1" ? (
+              <a style={{ cursor: "pointer" }} onClick={handleClick}>
+                {getTextProps().title}
+              </a>
+            ) : (
+              <div className={styles.uperTitle0}>{getTextProps().title}</div>
+            )}
+          </div>
+          <div
+            className={`${styles.centeredText} ${
+              getTextProps().link !== "-1"
+                ? styles.fadeInAnimation2
+                : styles.opacity1
+            }`}
+          >
+            {getTextProps().link !== "-1" ? (
+              <a style={{ cursor: "pointer" }} onClick={handleClick}>
+                {getTextProps().location}
+              </a>
+            ) : (
+              getTextProps().location
+            )}
+          </div>
+          <div
+            className={`${styles.subTitle} ${
+              getTextProps().link !== "-1"
+                ? styles.fadeInAnimation3
+                : styles.opacity1
+            }`}
+          >
+            {getTextProps().link !== "-1" ? (
+              <a style={{ cursor: "pointer" }} onClick={handleClick}>
+                {getTextProps().partner}
+              </a>
+            ) : (
+              getTextProps().partner
+            )}
+          </div>
         </div>
-        <div className={styles.centeredText}>
-          {getTextProps().link == "-1" ? (
-            getTextProps().location
-          ) : (
-            <a style={{ cursor: "pointer" }} onClick={handleClick}>
-              {getTextProps().location}
-            </a>
-          )}
-        </div>
-        <div className={styles.subTitle}>
-          {getTextProps().link == "-1" ? (
-            getTextProps().partner
-          ) : (
-            <a style={{ cursor: "pointer" }} onClick={handleClick}>
-              {getTextProps().partner}
-            </a>
-          )}
-        </div>
-      </div>
-    )}
-     { ImageComponentProps && ImageComponentProps.imagePlus && ImageComponentProps.imagePlus[activeStep] && ImageComponentProps.imagePlus[activeStep].photoBy && (
-  <div className={styles.PhotoBy}>
-    Foto: {ImageComponentProps.imagePlus[activeStep].photoBy}
-  </div>
-)}
-
-
+      )}
       <IconButton
         onClick={handleBack}
         sx={{

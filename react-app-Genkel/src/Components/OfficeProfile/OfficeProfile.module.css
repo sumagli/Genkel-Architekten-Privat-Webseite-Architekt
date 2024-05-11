@@ -9,14 +9,29 @@
   margin-top: 70px;
 }
 
-.serviceSection, .expertiseSection, .projectsSection, .innovationSection {
+/* Animation keyframes for fading in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.serviceSection {
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-bottom: 20px;
   padding: 20px;
   width: 80%;
+  opacity: 0; /* Start with hidden sections */
+  animation: fadeIn 1s ease forwards; /* Animation to fade in */
 }
+
 
 h1 {
   color: #000000;

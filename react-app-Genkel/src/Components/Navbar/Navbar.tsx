@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
+import { BiMenu } from "react-icons/bi";
+import { BsFillHouseDoorFill } from "react-icons/bs";
 
 interface NavbarProps {
   setOverlay: (overlay: boolean) => void;
@@ -28,6 +30,11 @@ const Navbar = ({ setOverlay, overlay, mainPage }: NavbarProps) => {
     };
   }, [mainPage]); // Add mainPage as a dependency
 
+  // Function to handle menu click on mobile
+  const handleMenuClick = () => {
+    setOverlay(true);
+  };
+
   return (
     <div
       className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${
@@ -36,32 +43,45 @@ const Navbar = ({ setOverlay, overlay, mainPage }: NavbarProps) => {
     >
       <nav className={styles.topBar}>
         <ul>
-          <li>
-            <a href="/" className={styles.iconLink}>
-              Aktuelles
-            </a>
-          </li>
-
-          <li>
-            <a href="/Projekte" className={styles.iconLink}>
-              Projekte
-            </a>
-          </li>
-          <li>
-            <a href="/Bueroprofil" className={styles.iconLink}>
-              Büroprofil
-            </a>
-          </li>
-          <li>
-            <a href="/Vita" className={styles.iconLink}>
-              Vita
-            </a>
-          </li>
-          <li>
-            <a href="/Partner" className={styles.iconLink}>
-              Partner
-            </a>
-          </li>
+          <div className={styles.mobileMenu}>
+            <li onClick={handleMenuClick} className={styles.iconLink}>
+              <BiMenu color="white" />
+              Menü
+            </li>
+            <li>
+              <a href="/" className={styles.iconLink}>
+                <BsFillHouseDoorFill color="white" />
+              </a>
+            </li>
+          </div>
+          {/* Hide these on mobile */}
+          <div className={styles.desktopMenuItems}>
+            <li>
+              <a href="/" className={styles.iconLink}>
+                Aktuelles
+              </a>
+            </li>
+            <li>
+              <a href="/Projekte" className={styles.iconLink}>
+                Projekte
+              </a>
+            </li>
+            <li>
+              <a href="/Bueroprofil" className={styles.iconLink}>
+                Büroprofil
+              </a>
+            </li>
+            <li>
+              <a href="/Vita" className={styles.iconLink}>
+                Vita
+              </a>
+            </li>
+            <li>
+              <a href="/Partner" className={styles.iconLink}>
+                Partner
+              </a>
+            </li>
+          </div>
         </ul>
       </nav>
       {isScrolled ? null : <hr className={styles.hr} />}

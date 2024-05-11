@@ -5,7 +5,7 @@
     width: 45%;
     /* Adjust width for the left part of the page */
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.5);
     /* Semi-transparent background */
     backdrop-filter: blur(10px);
     /* Blur effect for the background */
@@ -87,7 +87,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 55%;
+    width: 0%;
     height: 100%;
     z-index: 1000;
 }

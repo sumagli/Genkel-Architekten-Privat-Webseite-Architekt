@@ -8,6 +8,28 @@
   
 }
 
+/* Individual fade-in animation */
+@keyframes fadeInIndividual {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Group fade-in animation */
+@keyframes fadeInGroup {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .partnerItem {
   background-color: #f7f7f7;
   border-radius: 8px;
@@ -15,8 +37,10 @@
   padding: 20px;
   width: 80%;
   text-align: left;
-  
+  opacity: 0;  /* Start hidden for animation */
+  animation: fadeInIndividual 1s ease forwards; /* Default animation */
 }
+
 
 .websites {
   display: flex;
