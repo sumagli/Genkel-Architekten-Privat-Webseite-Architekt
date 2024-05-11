@@ -11,52 +11,45 @@ export interface Partner {
   projects?: string;
 }
 
-const a = [
-  {
-    name: "Behnisch Architekten, Stuttgart",
-    contacts: [
-      "Herr Stefan Behnisch",
-      "Herr Jörg Usinger",
-      "Herr Stefan Rappold",
-    ],
-    phone: "0711 – 607720",
-    website: "https://behnisch.com/",
-  },
-  {
-    name: "HWRl Architekten, Dortmund",
-    contacts: ["Herr Gunnar Ramsfjell"],
-    phone: "0231 – 97665-0",
-  },
-  {
-    name: "haascookzemmrich, Stuttgart",
-    contacts: ["Herr Martin Haas", "Herr David Cook"],
-    phone: "0711 – 22936260",
-  },
-  {
-    name: "Aldinger & Aldinger Architekten, Stuttgart",
-    contacts: ["Herr Prof. Jörg Aldinger"],
-    phone: "0711 – 976780",
-    projects: ["Projekt: BA Ravensburg"],
-  },
-  // Add more partners here...
-];
+export interface Friends {
+  name: string;
+  website?: string;
+}
+
+export interface PartnerProps {
+  partners: Partner[]; // Adjusted to be an array of Partner
+  friends: Friends[];
+}
 
 export default function Partner() {
-  const partners: Partner[] = usePartners();
+  const { partners, friends } = usePartners() as PartnerProps; // Assuming usePartners returns an object of type PartnerProps
 
   return (
     <div>
       <div className={styles.partner}>
-        <h1>Partner & Kontakte</h1>
-        {partners.map((partner, index) => (
+        <h1>Referenzen & Kontakte</h1>
+        {partners.map(
+          (
+            partner,
+            index // Loop through partners array
+          ) => (
+            <div key={index} className={styles.partnerItem}>
+              <h2>{partner.name}</h2>
+              {partner.contacts.map((contact, i) => (
+                <p key={i}>{contact}</p>
+              ))}
+              <p>Telefon: {partner.phone}</p>
+              {partner.projects && <p>Projekt: {partner.projects}</p>}
+              {partner.website && <a href={partner.website}>Website</a>}
+            </div>
+          )
+        )}
+
+        <h1 className={styles.friends}>Freunde & Partner</h1>
+        {friends.map((friends, index) => (
           <div key={index} className={styles.partnerItem}>
-            <h2>{partner.name}</h2>
-            {partner.contacts.map((contact, i) => (
-              <p key={i}>{contact}</p>
-            ))}
-            <p>Telefon: {partner.phone}</p>
-            {partner.projects && <p>{partner.projects}</p>}
-            {partner.website && <a href={`${partner.website}`}>Website</a>}
+            <h2>{friends.name}</h2>
+            {friends.website && <a href={friends.website}>Website</a>}
           </div>
         ))}
       </div>

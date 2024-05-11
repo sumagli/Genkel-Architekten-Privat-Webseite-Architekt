@@ -32,11 +32,30 @@
 
 }
 
-.newsImage {
+.image {
+  position: relative; /* Needed for absolute positioning of children */
   width: 500px; /* Adjusted width */
-  max-height: 300px; /* Changed to 100% to fill the height */
+  height: 300px; /* Set a specific height */
+  overflow: hidden; /* Keeps the photoBy text within the image boundaries */
+}
+
+.newsImage {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
+
+.PhotoBy {
+  position: absolute;
+  bottom: 10px; 
+  right: 10px;
+  color: #fff; 
+  font-size: 0.8rem;
+  /*background-color: rgba(0, 0, 0, 0.5);  */
+  padding: 5px; 
+  border-radius: 5px; 
+}
+
 
 .newsContent {
   padding: 15px;
@@ -66,6 +85,30 @@
   border: 1px solid rgb(70, 66, 126);
   border-radius: 5px;
   cursor: pointer;
+}
+
+
+
+.readMoreButton {
+  display: none; /* Default state is hidden */
+  color: #0066cc;
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.readMoreButton:focus {
+  outline: none;
+}
+
+
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .readMoreButton {
+    display: block; /* Show the button on mobile devices */
+  }
 }
 
 

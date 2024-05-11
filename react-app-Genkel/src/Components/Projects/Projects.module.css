@@ -3,10 +3,9 @@
   flex-wrap: wrap;
   gap: 20px;
   padding-top: 100px;
-
   justify-content: center;
   align-items: center;
-z-index: 10;
+  z-index: 10;
 }
 
 .projectItem {
@@ -16,16 +15,35 @@ z-index: 10;
   text-align: center;
   transition: transform 0.3s ease;
   background-color: white;
+  max-width: 85%;
 }
 
 .projectItem:hover {
   transform: scale(1.05);
 }
 
-.projectImage {
-  width: 500px;
+.imageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
   height: 350px;
-  object-fit: cover; /* This will cover the area of the box without distorting the aspect ratio */
-  object-position: center; /* This will center the image within the box */
+  overflow: hidden;
 }
 
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.PhotoBy {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 0.8rem;
+  /*background-color: rgba(0, 0, 0, 0.5); */
+  padding: 5px;
+  border-radius: 5px;
+}

@@ -22,31 +22,30 @@ const NewFooter = ({ mainPage }: FooterProps) => {
         <div className={styles.footerContent}>
           <div className={styles.links}>
             <h3>Seitenmenü:</h3>
-
-            <div>
-              <a href="/">Aktuelles</a>
-              <br />
-              <a href="/Projekte">Projekte</a>
-              <br />
-              <a href="/Bueroprofil">Büroprofil</a>
-              <br />
-              <a href="/Vita">Vita</a>
-              <br />
-              <a href="/Partner">Partner</a>
-              <br /> <br />
-            </div>
-
+            <a href="/">Aktuelles</a>
+            <br />
+            <a href="/Projekte">Projekte</a>
+            <br />
+            <a href="/Bueroprofil">Büroprofil</a>
+            <br />
+            <a href="/Vita">Vita</a>
+            <br />
+            <a href="/Partner">Partner</a>
+            <br />
+            <br />
             <a href="/Impressum">Impressum</a>
             <br />
             <a href="/Datenschutz">Datenschutz</a>
             <br />
             <a href="/Credit">Credit</a>
           </div>
-          <div>
+          <div className={styles.rechts}>
             <h3>Kontakt:</h3>
             <p>Heinrich-Baumann-Straße 7b</p>
             <p>70190 Stuttgart</p>
-            <a href="mailto:genkel@genkelarchitekten.com">genkel@genkelarchitekten.com</a>
+            <a href="mailto:genkel@genkelarchitekten.com">
+              genkel@genkelarchitekten.com
+            </a>
           </div>
         </div>
         <hr />

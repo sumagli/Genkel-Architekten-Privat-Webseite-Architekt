@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Projects.module.css";
 import NewFooter from "../NewFooter/NewFooter";
-import testPicture from "../../Assets/Images/home/P1080211.jpg"; // Fixed 'Assats' typo to 'Assets'
 import { ProjectsArray } from "../../App";
 
 export default function Projects({ projects }: ProjectsArray) {
@@ -26,11 +25,18 @@ export default function Projects({ projects }: ProjectsArray) {
             className={styles.projectItem}
             onClick={() => handleClick(item.title)}
           >
-            <img
-              src={item.image[0].imageLink}
-              alt={item.name}
-              className={styles.projectImage}
-            />
+            <div className={styles.imageContainer}>
+              <img
+                src={item.image[0].imageLink}
+                alt={item.title}
+                className={styles.projectImage}
+              />
+              {item.image[0].photoBy && (
+                <div className={styles.PhotoBy}>
+                  Foto: {item.image[0].photoBy}
+                </div>
+              )}
+            </div>
             <h4>{item.title}</h4>
             <p>{item.subtitle}</p>
             <p>{item.partner}</p>

@@ -33,7 +33,6 @@ export default function SpecificProject({ projects }: ProjectsArray) {
   const specificProject = projects.filter((project) => project.title == title);
   const singleProject = specificProject[0];
 
-
   const helper: ImageComponentProps = {
     imagePlus: singleProject?.image,
     ImageComponentTextProps: [
@@ -50,19 +49,29 @@ export default function SpecificProject({ projects }: ProjectsArray) {
     <div className={styles.Container}>
       <ImageComponent ImageComponentProps={helper} />
       <div className={styles.officeProfileContainer}>
-        <h3 className={styles.serviceSection}>
-          Bauzeit: {singleProject?.buildingTime}
-        </h3>
-        <h3 className={styles.serviceSection}>
-          Bauhher: {singleProject?.bauherr}
-        </h3>
-        <h3 className={styles.serviceSection}>
-          Täigkeitsfelder_ {singleProject?.Taetigkeitsfelder}
-        </h3>
-        <h3 className={styles.serviceSection}>
-          Beschreibung Maßnahme: {singleProject?.BeschreibungMaßnahme}
-        </h3>
-        <h3 className={styles.serviceSection}>{singleProject?.info}</h3>
+        {singleProject?.buildingTime && (
+          <h3 className={styles.serviceSection}>
+            Bauzeit: {singleProject?.buildingTime}
+          </h3>
+        )}
+        {singleProject?.bauherr && (
+          <h3 className={styles.serviceSection}>
+            Bauhher: {singleProject?.bauherr}
+          </h3>
+        )}
+        {singleProject?.Taetigkeitsfelder && (
+          <h3 className={styles.serviceSection}>
+            Täigkeitsfelder_ {singleProject?.Taetigkeitsfelder}
+          </h3>
+        )}
+        {singleProject?.BeschreibungMaßnahme && (
+          <h3 className={styles.serviceSection}>
+            Beschreibung Maßnahme: {singleProject?.BeschreibungMaßnahme}
+          </h3>
+        )}
+        {singleProject?.info && (
+          <h3 className={styles.serviceSection}>{singleProject?.info}</h3>
+        )}
       </div>
       <NewFooter mainPage={false} />
     </div>

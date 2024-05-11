@@ -20,7 +20,7 @@ export default function Home({ overlay, projects }: HomeProps) {
   const news = useNews();
 
   const specificProjects = projects
-    .filter((project) => project.mainPagePosition !== 0)
+    .filter((project) => project.mainPagePosition !== null)
     .sort((a, b) => a.mainPagePosition - b.mainPagePosition);
 
   const helper: ImageComponentProps = {
@@ -43,7 +43,6 @@ export default function Home({ overlay, projects }: HomeProps) {
       link: project.link,
     });
   });
-
 
   return (
     <div className={styles.home}>

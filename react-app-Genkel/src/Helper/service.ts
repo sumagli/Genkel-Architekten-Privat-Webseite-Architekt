@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Partner from "../Components/Partner/Partner";
+import Partner, { PartnerProps } from "../Components/Partner/Partner";
 import { Project, ProjectsArray } from "../App";
 
 interface VacationMessageData {
@@ -204,7 +204,10 @@ export const useVitaJoern = () => {
 };
 
 export const usePartners = () => {
-  const [vitaData, setVitaData] = React.useState([]);
+  const [vitaData, setVitaData] = React.useState<PartnerProps>({
+    partners: [],
+    friends: [],
+  });
 
   React.useEffect(() => {
     const fetchPartners = async () => {
@@ -212,20 +215,26 @@ export const usePartners = () => {
         const response = await axios.get(
           "https://api.storyblok.com/v2/cdn/stories/partner?version=draft&token=NVIqECUf49USBq8O93Z3SAtt&cv=1714250598"
         );
-        const listData = response.data.story.content.Partner.map(
-          (item: any) => ({
-            name: item.name,
-            contacts: Array.isArray(item.Anprechpartner)
-              ? item.Anprechpartner.map(
-                  (contact: any) => contact.Ansprechpartner
-                )
-              : [],
-            phone: item.Telephone,
-            website: item.webseite,
-            projects: item.projekte,
-          })
-        );
-        setVitaData(listData);
+        const content = response.data.story.content;
+
+        // Extract partners
+        const partners = content.Partner.map((item: any) => ({
+          name: item.name,
+          contacts: Array.isArray(item.Anprechpartner)
+            ? item.Anprechpartner.map((contact: any) => contact.Ansprechpartner)
+            : [],
+          phone: item.Telephone,
+          website: item.webseite,
+          projects: item.Projekte,
+        }));
+
+        // Extract friends
+        const friends = content.Friends.map((item: any) => ({
+          name: item.Name,
+          website: item.Link,
+        }));
+
+        setVitaData({ partners: partners, friends: friends });
       } catch (error) {
         console.error("Error fetching partner data:", error);
       }
@@ -236,7 +245,6 @@ export const usePartners = () => {
 
   return vitaData;
 };
-
 export const useOfficeProfile = () => {
   const [vitaData, setVitaData] = React.useState([]);
 
@@ -281,6 +289,7 @@ export const useNews = () => {
             text: item.Text,
             link: item.Link,
             linkText: item.LinkText,
+            photoBy: item.Fotograph,
           })
         );
         setVitaData(listData);
@@ -304,25 +313,25 @@ export const useProjects = () => {
         const response = await axios.get(
           "https://api.storyblok.com/v2/cdn/stories/projekte?version=draft&token=NVIqECUf49USBq8O93Z3SAtt&cv=1714476295"
         );
-        const projectsData: Project[] = response.data.story.content.Projekte.map((proj: any) => ({
-          name: proj.Title,
-          image: proj.Bilder.map((img: any) => ({
-            imageLink: img.Bild.filename,
-            photoBy: img.Fotograph
-          })),
-          title: proj.Title,
-          subtitle: proj.Bauort,
-          partner: proj.Partner,
-          buildingTime: proj.Bauzeit,
-          bauherr: proj.Bauherr,
-          Taetigkeitsfelder: proj.Taetigkeitsfelder,
-          BeschreibungMaßnahme: proj.BeschreibungMasnahme,
-          link: proj.Link.url,
-          info: proj.Text,
-          mainPagePosition: parseInt(proj.PositionMainpage)
-        }));
-        setProjects(projectsData );
-       
+        const projectsData: Project[] =
+          response.data.story.content.Projekte.map((proj: any) => ({
+            name: proj.Title,
+            image: proj.Bilder.map((img: any) => ({
+              imageLink: img.Bild.filename,
+              photoBy: img.Fotograph,
+            })),
+            title: proj.Title,
+            subtitle: proj.Bauort,
+            partner: proj.Partner,
+            buildingTime: proj.Bauzeit,
+            bauherr: proj.Bauherr,
+            Taetigkeitsfelder: proj.Taetigkeitsfelder,
+            BeschreibungMaßnahme: proj.BeschreibungMasnahme,
+            link: proj.Link.url,
+            info: proj.Text,
+            mainPagePosition: parseInt(proj.PositionMainpage) || null,
+          }));
+        setProjects(projectsData);
       } catch (error) {
         console.error("Error fetching projects:", error);
       }

@@ -38,11 +38,9 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-
   align-items: center;
   max-width: 800px;
   margin: auto;
-  margin-top: 70px;
 }
 
 .serviceSection, .expertiseSection, .projectsSection, .innovationSection {
@@ -51,7 +49,8 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-bottom: 20px;
   padding: 20px;
-  width: 100%;
+  width: 80%;
+  white-space: pre-wrap; /* Preserves whitespace and wraps text */
 }
 
 
