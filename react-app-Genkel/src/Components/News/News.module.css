@@ -122,6 +122,10 @@
   .readMoreButton {
     display: block; /* Show the button on mobile devices */
   }
+
+  .image{
+   width: 40%;
+  }
 }
 
 

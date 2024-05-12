@@ -67,10 +67,22 @@ const News: React.FC<NewsProps> = ({ newsData }) => {
     </div>
   );
 };
-// NewsItem component with conditional "Read More" rendering
+
 const NewsItemComponent: React.FC<NewsItemProps> = ({ newsItem }) => {
   const [isReadMoreShown, setIsReadMoreShown] = useState(false);
   const textLimit = 100; // Set the limit for text before showing "Read More"
+
+  // This function will be called when the link is clicked
+  const handleClick = (link: string | undefined, name: string) => () => {
+    console.log("link", link);
+    console.log("name", name);
+    if (link === "") {
+      console.log("link1");
+      window.location.href = `/projekte/${name}`;
+    } else {
+      window.location.href = link!;
+    }
+  };
 
   const toggleReadMore = () => {
     setIsReadMoreShown(!isReadMoreShown);
@@ -99,14 +111,17 @@ const NewsItemComponent: React.FC<NewsItemProps> = ({ newsItem }) => {
             ? newsItem.text
             : `${newsItem.text.substring(0, textLimit)}...`}
         </p>
-        {/* Render the Read More button only if the text is longer than the limit and on mobile */}
+        {/* Render the Read More button only if the text is longer than the limit */}
         {isTextLong && (
           <button onClick={toggleReadMore} className={styles.readMoreButton}>
             {isReadMoreShown ? "Show Less" : "Read More"}
           </button>
         )}
-        {newsItem?.link?.url && (
-          <a href={newsItem.link.url} className={styles.newsLink}>
+        {newsItem?.linkText && (
+          <a
+            onClick={handleClick(newsItem?.link?.url, newsItem.title)}
+            className={styles.newsLink}
+          >
             {newsItem.linkText ? newsItem.linkText : "Learn more"}
           </a>
         )}
