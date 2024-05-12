@@ -10,6 +10,7 @@ import { ImageComponentProps } from "../SpecificProject/SpecificProject";
 import oe1 from "../../Assats/Images/news/oesterfeld.jpg";
 import raum from "../../Assats/Images/news/raum.jpg";
 import { useNews } from "../../Helper/service";
+import { Helmet } from "react-helmet";
 
 interface HomeProps {
   overlay: boolean;
@@ -46,6 +47,17 @@ export default function Home({ overlay, projects }: HomeProps) {
 
   return (
     <div className={styles.home}>
+      <Helmet>
+        <title>Genkel Architekten</title>
+        <meta
+          name="description"
+          content="Genkel Architekten - Architekturbüro in Stuttgart. Wie übernehmebn die Leistungsphase 6, Ausschreibung und Leistungsphase 7, Vergabe für Sie."
+        />
+        <meta
+          name="keywords"
+          content="Architekt, Stuttgart, Leistungsphasen 6 und 7, Ausschreibung, Vergabe, Genkel Architekten"
+        />
+      </Helmet>
       <div id="Home">
         <ImageComponent ImageComponentProps={helper} />
       </div>

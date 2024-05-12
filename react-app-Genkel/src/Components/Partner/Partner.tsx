@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Partner.module.css";
 import NewFooter from "../NewFooter/NewFooter";
 import { usePartners } from "../../Helper/service";
+import { Helmet } from "react-helmet";
 
 export interface Partner {
   name: string;
@@ -27,6 +28,17 @@ export default function Partner() {
   return (
     <div>
       <div className={styles.partner}>
+        <Helmet>
+          <title>Partner - Genkel Architekten</title>
+          <meta
+            name="description"
+            content="Entdecken Sie die Partner mit denen Genkel Architekten zusammengearbeitet hat. Unsere Partnerseite bietet eine Übersicht über wichtige Kooperationen und gemeinsame Projekte."
+          />
+          <meta
+            name="keywords"
+            content="Genkel Architekten, Architekturpartnerschaften, Bauwesen, Kooperationen, Partnerfirmen, Stuttgart"
+          />
+        </Helmet>
         <h1>Referenzen & Kontakte</h1>
         {partners.map((partner, index) => (
           <div

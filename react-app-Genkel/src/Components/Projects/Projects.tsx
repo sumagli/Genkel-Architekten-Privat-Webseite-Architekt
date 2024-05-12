@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Projects.module.css";
 import NewFooter from "../NewFooter/NewFooter";
 import { ProjectsArray } from "../../App";
+import { Helmet } from "react-helmet";
 
 export default function Projects({ projects }: ProjectsArray) {
   const handleClick = (title: string) => {
@@ -19,6 +20,17 @@ export default function Projects({ projects }: ProjectsArray) {
   return (
     <div>
       <div className={styles.Projects}>
+        <Helmet>
+          <title>Projekte - Genkel Architekten</title>
+          <meta
+            name="description"
+            content="Übersicht der Projekte von Genkel Architekten, spezialisiert auf Leistungsphasen 6 und 7. Entdecken Sie unsere Beteiligungen an Ausschreibungen und Vergaben."
+          />
+          <meta
+            name="keywords"
+            content="Genkel Architekten, Architekturprojekte, Leistungsphase 6, Leistungsphase 7, Ausschreibung, Vergabe, Stuttgart"
+          />
+        </Helmet>
         {projects.map((item, index) => (
           <div
             key={index}

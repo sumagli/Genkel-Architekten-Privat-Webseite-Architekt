@@ -10,6 +10,7 @@ import MobileStepper from "@mui/material/MobileStepper";
 import styles from "./VitaPages.module.css";
 import { Link } from "react-router-dom";
 import { useVitaPictures } from "../../../Helper/service.ts";
+import { Helmet } from "react-helmet";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -31,6 +32,17 @@ const VitaPages = ({
 
   return (
     <Box className={styles.slideshowContainer}>
+      <Helmet>
+        <title>Vita - Jörn Genkel</title>
+        <meta
+          name="description"
+          content="Jörn Genkel, der Leiter von Genkel Architekten, stellt seinen beruflichen Werdegang und Projekte vor. Erfahren Sie mehr über seine Erfahrungen und Beiträge zur Architektur."
+        />
+        <meta
+          name="keywords"
+          content="Jörn Genkel, Lebenslauf, Architekt, Genkel Architekten, Projektbeteiligungen, Architekturerfahrung, Stuttgart"
+        />
+      </Helmet>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
