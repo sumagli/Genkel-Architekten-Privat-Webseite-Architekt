@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import styles from "./SpecificProject.module.css";
-import "../../Assats//Fonts/Fonts.css";
 import NewFooter from "../NewFooter/NewFooter";
 import ImageComponent from "../ImageComponent/ImageComponent";
 import { ProjectsArray } from "../../App";
