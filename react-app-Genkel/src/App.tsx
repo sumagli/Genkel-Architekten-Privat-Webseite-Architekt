@@ -57,9 +57,6 @@ function App() {
   const joernTimeline = useVitaJoern();
 
   const data = useProjects();
-  console.log("data");
-  console.log(data);
-
   React.useEffect(() => {
     if (!overlay) {
       setTimeout(() => setShowOverlay(false), 300); // 300ms matches the CSS animation duration

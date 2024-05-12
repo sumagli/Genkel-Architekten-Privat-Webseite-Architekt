@@ -27,7 +27,6 @@ const VitaPages = ({
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const modifiedTitle = title.split(" ")[0];
-  //const imageUrl = useVitaPictures(modifiedTitle);
   const test = 1;
 
   return (
@@ -56,7 +55,14 @@ const VitaPages = ({
               : styles.animateOutUperTitle
           }`}
         >
-          {<a className={styles.email} href="mailto:genkel@genkelarchitekten.com">genkel@genkelarchitekten.com</a>}
+          {
+            <a
+              className={styles.email}
+              href="mailto:genkel@genkelarchitekten.com"
+            >
+              genkel@genkelarchitekten.com
+            </a>
+          }
         </div>
         <div
           className={`${styles.centeredText} ${

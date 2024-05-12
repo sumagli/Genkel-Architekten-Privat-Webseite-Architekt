@@ -44,7 +44,7 @@ export default function Projects({ projects }: ProjectsArray) {
           </div>
         ))}
       </div>
-      <NewFooter mainPage={false} />
+      {projects[0]?.title && <NewFooter mainPage={false} />}
     </div>
   );
 }

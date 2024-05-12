@@ -10,7 +10,7 @@ interface ProfileSection {
 }
 
 const OfficeProfile: React.FC = () => {
-  const profile = useOfficeProfile();
+  const profile: ProfileSection[] = useOfficeProfile();
 
   return (
     <div>
@@ -27,7 +27,7 @@ const OfficeProfile: React.FC = () => {
           </section>
         ))}
       </div>
-      <NewFooter mainPage={false} />
+      {profile[0]?.headline && <NewFooter mainPage={false} />}
     </div>
   );
 };

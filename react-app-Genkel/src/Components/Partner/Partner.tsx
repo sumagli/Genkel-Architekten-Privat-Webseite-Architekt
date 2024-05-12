@@ -46,8 +46,9 @@ export default function Partner() {
             {partner.website && <a href={partner.website}>Website</a>}
           </div>
         ))}
-
-        <h1 className={styles.friends}>Freunde & Partner</h1>
+        {friends[0]?.name && (
+          <h1 className={styles.friends}>Freunde & Partner</h1>
+        )}
         {friends.map((friend, index) => (
           <div key={index} className={styles.partnerItem}>
             <h2>{friend.name}</h2>
@@ -55,7 +56,7 @@ export default function Partner() {
           </div>
         ))}
       </div>
-      <NewFooter mainPage={false} />
+      {partners[0]?.name && <NewFooter mainPage={false} />}
     </div>
   );
 }
