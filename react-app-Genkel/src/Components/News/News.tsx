@@ -70,25 +70,25 @@ const News: React.FC<NewsProps> = ({ newsData }) => {
 
 const NewsItemComponent: React.FC<NewsItemProps> = ({ newsItem }) => {
   const [isReadMoreShown, setIsReadMoreShown] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
   const textLimit = 100; // Set the limit for text before showing "Read More"
 
-  // This function will be called when the link is clicked
-  const handleClick = (link: string | undefined, name: string) => () => {
-    console.log("link", link);
-    console.log("name", name);
-    if (link === "") {
-      console.log("link1");
-      window.location.href = `/projekte/${name}`;
-    } else {
-      window.location.href = link!;
-    }
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggleReadMore = () => {
     setIsReadMoreShown(!isReadMoreShown);
   };
 
-  // Determine if the text is longer than the limit
   const isTextLong = newsItem.text.length > textLimit;
 
   return (
@@ -107,22 +107,24 @@ const NewsItemComponent: React.FC<NewsItemProps> = ({ newsItem }) => {
         <h3 className={styles.newsTitle}>{newsItem.title}</h3>
         <p className={styles.newsDate}>{newsItem.date}</p>
         <p className={styles.newsShortText}>
-          {isReadMoreShown || !isTextLong
+          {isReadMoreShown || !isTextLong || !isMobile
             ? newsItem.text
             : `${newsItem.text.substring(0, textLimit)}...`}
         </p>
-        {/* Render the Read More button only if the text is longer than the limit */}
-        {isTextLong && (
+        {isTextLong && isMobile && (
           <button onClick={toggleReadMore} className={styles.readMoreButton}>
             {isReadMoreShown ? "Show Less" : "Read More"}
           </button>
         )}
-        {newsItem?.linkText && (
+        {newsItem.linkText && (
           <a
-            onClick={handleClick(newsItem?.link?.url, newsItem.title)}
+            onClick={() =>
+              (window.location.href =
+                newsItem.link?.url || `/projekte/${newsItem.title}`)
+            }
             className={styles.newsLink}
           >
-            {newsItem.linkText ? newsItem.linkText : "Learn more"}
+            {newsItem.linkText}
           </a>
         )}
       </div>
