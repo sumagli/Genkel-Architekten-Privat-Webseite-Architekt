@@ -45,6 +45,7 @@ export interface Project {
   link: string;
   info: string;
   mainPagePosition: number;
+  direktLink: string;
 }
 
 export interface ProjectsArray {

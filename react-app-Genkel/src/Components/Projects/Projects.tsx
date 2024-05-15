@@ -10,10 +10,10 @@ export default function Projects({ projects }: ProjectsArray) {
       (project) => project.title === title
     );
     const singleProject = specificProject[0];
-    if (singleProject.link == "") {
+    if (singleProject.direktLink === "") {
       window.location.href = `/projekte/${title}`;
     } else {
-      window.location.href = singleProject.link;
+      window.location.href = singleProject.direktLink;
     }
   };
 
@@ -36,7 +36,10 @@ export default function Projects({ projects }: ProjectsArray) {
             key={index}
             className={styles.projectItem}
             onClick={() => handleClick(item.title)}
-            style={{ animationDelay: `${index * 0.3}s` }} // Each project fades in 0.1s after the previous one
+            style={{
+              animationName: index < 15 ? styles.fadeInProject : styles.swipeIn,
+              animationDelay: index < 15 ? `${index * 0.3}s` : "0s",
+            }}
           >
             <div className={styles.imageContainer}>
               <img

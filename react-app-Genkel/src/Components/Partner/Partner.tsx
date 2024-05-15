@@ -18,7 +18,7 @@ export interface Friends {
 }
 
 export interface PartnerProps {
-  partners: Partner[]; // Adjusted to be an array of Partner
+  partners: Partner[];
   friends: Friends[];
 }
 
@@ -46,7 +46,7 @@ export default function Partner() {
             className={styles.partnerItem}
             style={{
               animationName: index < 6 ? styles.fadeIn : styles.fadeInGroup,
-              animationDelay: index < 6 ? `${index * 0.3}s` : "1.8s", // Delay 0.3s increments for the first 6, 1.8s for the rest
+              animationDelay: index < 6 ? `${index * 0.3}s` : "1.8s",
             }}
           >
             <h2>{partner.name}</h2>
@@ -55,7 +55,15 @@ export default function Partner() {
             ))}
             <p>Telefon: {partner.phone}</p>
             {partner.projects && <p>Projekt: {partner.projects}</p>}
-            {partner.website && <a href={partner.website}>Website</a>}
+            {partner.website && (
+              <a
+                href={partner.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Website
+              </a>
+            )}
           </div>
         ))}
         {friends[0]?.name && (
@@ -64,7 +72,15 @@ export default function Partner() {
         {friends.map((friend, index) => (
           <div key={index} className={styles.partnerItem}>
             <h2>{friend.name}</h2>
-            {friend.website && <a href={friend.website}>Website</a>}
+            {friend.website && (
+              <a
+                href={friend.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Website
+              </a>
+            )}
           </div>
         ))}
       </div>

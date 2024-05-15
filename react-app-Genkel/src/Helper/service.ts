@@ -328,6 +328,7 @@ export const useProjects = () => {
             Taetigkeitsfelder: proj.Taetigkeitsfelder,
             BeschreibungMaßnahme: proj.BeschreibungMasnahme,
             link: proj.Link.url,
+            direktLink: proj.direktLink.url,
             info: proj.Text,
             mainPagePosition: parseInt(proj.PositionMainpage) || null,
           }));

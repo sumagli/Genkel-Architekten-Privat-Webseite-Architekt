@@ -42,6 +42,7 @@ export default function Home({ overlay, projects }: HomeProps) {
       location: project.subtitle,
       partner: project.partner,
       link: project.link,
+      direktLink: project.direktLink,
     });
   });
 

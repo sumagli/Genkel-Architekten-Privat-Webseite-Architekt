@@ -56,14 +56,15 @@ const News: React.FC<NewsProps> = ({ newsData }) => {
           <NewsItemComponent key={index} newsItem={newsItem} />
         ))}
       </div>
-      {!showAll && (
-        <button
-          onClick={() => setShowAll(true)} // Set showAll to true when button is clicked
-          className={styles.showMoreButton}
-        >
-          Mehr anzeigen
-        </button>
-      )}
+      {!showAll ||
+        (newsData.length < visibleCount + 1 && (
+          <button
+            onClick={() => setShowAll(true)} // Set showAll to true when button is clicked
+            className={styles.showMoreButton}
+          >
+            Mehr anzeigen
+          </button>
+        ))}
     </div>
   );
 };
@@ -72,7 +73,7 @@ const NewsItemComponent: React.FC<NewsItemProps> = ({ newsItem }) => {
   const [isReadMoreShown, setIsReadMoreShown] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const textLimit = 100; // Set the limit for text before showing "Read More"
+  const textLimit = 60; // Set the limit for text before showing "Read More"
 
   useEffect(() => {
     const handleResize = () => {

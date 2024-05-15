@@ -11,6 +11,7 @@ export interface ImageComponentTextProps {
   location: string;
   partner: string;
   link: string;
+  direktLink: string;
 }
 
 export interface ImagePlus {
@@ -40,6 +41,7 @@ export default function SpecificProject({ projects }: ProjectsArray) {
         location: singleProject?.subtitle,
         partner: singleProject?.partner,
         link: "-1",
+        direktLink: "-1",
       },
     ],
   };
@@ -70,6 +72,17 @@ export default function SpecificProject({ projects }: ProjectsArray) {
         )}
         {singleProject?.info && (
           <h3 className={styles.serviceSection}>{singleProject?.info}</h3>
+        )}
+        {singleProject?.link && (
+          <h3 className={styles.serviceSection}>
+            <a
+              href={singleProject?.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Website
+            </a>
+          </h3>
         )}
       </div>
       <NewFooter mainPage={false} />

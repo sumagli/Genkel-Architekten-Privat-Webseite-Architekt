@@ -70,6 +70,12 @@
   padding: 1%;
 }
 
+.serviceSection a{
+  color: #5883c5;
+  text-decoration: none;
+
+}
+
 
 @keyframes bounce {
 

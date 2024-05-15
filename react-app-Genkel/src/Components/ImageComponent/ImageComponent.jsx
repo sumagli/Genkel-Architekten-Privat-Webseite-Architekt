@@ -2,8 +2,8 @@ import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import { BiCaretLeft } from "react-icons/bi";
+import { BiCaretRight } from "react-icons/bi";
 import SwipeableViews from "react-swipeable-views-react-18-fix";
 import { autoPlay } from "react-swipeable-views-utils";
 import MobileStepper from "@mui/material/MobileStepper";
@@ -36,10 +36,12 @@ const ImageComponent = ({ ImageComponentProps }) => {
 
   const handleClick = () => {
     const helper = getTextProps();
-    if (helper.link == "") {
+    console.log(helper);
+    if (helper.direktLink == "") {
       window.location.href = `/projekte/${helper.title}`;
     } else {
-      window.location.href = helper.link;
+      console.log("helper.title");
+      window.location.href = helper.direktLink;
     }
   };
 
@@ -125,7 +127,7 @@ const ImageComponent = ({ ImageComponentProps }) => {
           fontSize: "2rem",
         }}
       >
-        <KeyboardArrowLeft fontSize="inherit" />
+        <BiCaretLeft />
       </IconButton>
       <IconButton
         onClick={handleNext}
@@ -140,7 +142,7 @@ const ImageComponent = ({ ImageComponentProps }) => {
           fontSize: "2rem",
         }}
       >
-        <KeyboardArrowRight fontSize="inherit" />
+        <BiCaretRight />
       </IconButton>
       <MobileStepper
         steps={maxSteps}

@@ -6,6 +6,8 @@
   justify-content: center;
   align-items: center;
   z-index: 10;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 @keyframes fadeInProject {
@@ -29,6 +31,7 @@
   max-width: 85%;
   opacity: 0;
   animation: fadeInProject 0.8s ease forwards;
+  max-width: 500px;
 }
 
 .projectItem:hover {
@@ -45,6 +48,18 @@
   }
 }
 
+@keyframes swipeIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);  
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
 
 
 
@@ -52,6 +67,7 @@
   position: relative;
   width: 100%;
   max-width: 500px;
+  min-width: 500px;
   height: 350px;
   overflow: hidden;
 }
@@ -73,3 +89,15 @@
   padding: 5px;
   border-radius: 5px;
 }
+
+@media (max-width: 768px) {
+  .imageContainer {
+    min-width: 1px;
+  }
+
+  .projectItem {
+    max-width: 85%;
+  }
+
+}
+
