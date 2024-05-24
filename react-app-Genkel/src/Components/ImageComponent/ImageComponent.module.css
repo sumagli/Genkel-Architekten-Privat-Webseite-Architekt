@@ -54,7 +54,6 @@
 
 .textContent {
     position: absolute;
-
     bottom: 10%;
     left: 10%;
     width: auto;  
@@ -266,6 +265,29 @@
         transform: translate(0, 0);
     }
 }
+
+@media (max-width: 768px) {
+
+    .textContent {
+        position: absolute;
+    
+        bottom: 15%;
+
+    }
+
+    .uperTitle {
+        font-size: 2.0rem;
+    }
+    
+    
+    .centeredText {
+        font-size: 1rem;
+    }
+    
+    .subTitle {
+        font-size: 1rem;   
+    }
+  }
 
 
 

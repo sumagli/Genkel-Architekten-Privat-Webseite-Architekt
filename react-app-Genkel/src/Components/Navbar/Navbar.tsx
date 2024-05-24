@@ -44,14 +44,14 @@ const Navbar = ({ setOverlay, overlay, mainPage }: NavbarProps) => {
       <nav className={styles.topBar}>
         <ul>
           <div className={styles.mobileMenu}>
-            <li onClick={handleMenuClick} className={styles.iconLink}>
-              <BiMenu color="white" />
-              Menü
-            </li>
+            <li></li>
             <li>
-              <a href="/" className={styles.iconLink}>
+              <a href="/">
                 <BsFillHouseDoorFill color="white" />
               </a>
+            </li>
+            <li onClick={handleMenuClick}>
+              <BiMenu color="white" />
             </li>
           </div>
           {/* Hide these on mobile */}

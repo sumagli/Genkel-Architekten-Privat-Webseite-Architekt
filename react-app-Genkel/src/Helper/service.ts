@@ -313,13 +313,14 @@ export const useProjects = () => {
         const response = await axios.get(
           "https://api.storyblok.com/v2/cdn/stories/projekte?version=draft&token=NVIqECUf49USBq8O93Z3SAtt&cv=1714476295"
         );
-        const projectsData: Project[] =
-          response.data.story.content.Projekte.map((proj: any) => ({
+        let projectsData: Project[] = response.data.story.content.Projekte.map(
+          (proj: any) => ({
             name: proj.Title,
             image: proj.Bilder.map((img: any) => ({
               imageLink: img.Bild.filename,
               photoBy: img.Fotograph,
             })),
+            anzeigen: proj.Anzeigen,
             title: proj.Title,
             subtitle: proj.Bauort,
             partner: proj.Partner,
@@ -331,7 +332,11 @@ export const useProjects = () => {
             direktLink: proj.direktLink.url,
             info: proj.Text,
             mainPagePosition: parseInt(proj.PositionMainpage) || null,
-          }));
+          })
+        );
+        projectsData = projectsData.filter(
+          (proj: any) => proj.anzeigen === true
+        );
         setProjects(projectsData);
       } catch (error) {
         console.error("Error fetching projects:", error);

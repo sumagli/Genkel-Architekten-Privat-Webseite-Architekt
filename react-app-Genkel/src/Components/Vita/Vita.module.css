@@ -10,6 +10,7 @@
   background: #ffffff;
   margin: 0px;
   padding-top: 20px;
+ 
 }
 
 .Vita h1 {
@@ -57,6 +58,18 @@
   text-align: center;
 }
 
+
+
+
+@media (max-width: 768px) {
+  .rightContent{
+    width: 40vw;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+
+}
 
 @keyframes bounce {
 

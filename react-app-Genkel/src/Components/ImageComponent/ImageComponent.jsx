@@ -12,6 +12,7 @@ import styles from "./ImageComponent.module.css";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const ImageComponent = ({ ImageComponentProps }) => {
+  console.log(ImageComponentProps);
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = ImageComponentProps?.imagePlus?.length;
@@ -40,7 +41,6 @@ const ImageComponent = ({ ImageComponentProps }) => {
     if (helper.direktLink == "") {
       window.location.href = `/projekte/${helper.title}`;
     } else {
-      console.log("helper.title");
       window.location.href = helper.direktLink;
     }
   };
@@ -154,6 +154,14 @@ const ImageComponent = ({ ImageComponentProps }) => {
           width: "100%",
         }}
       />
+      {ImageComponentProps &&
+        ImageComponentProps.imagePlus &&
+        ImageComponentProps.imagePlus[activeStep] &&
+        ImageComponentProps.imagePlus[activeStep].photoBy && (
+          <div className={styles.PhotoBy}>
+            Foto: {ImageComponentProps.imagePlus[activeStep].photoBy}
+          </div>
+        )}
     </Box>
   );
 };

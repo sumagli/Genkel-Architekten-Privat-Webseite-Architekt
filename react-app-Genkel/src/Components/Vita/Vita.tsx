@@ -49,16 +49,18 @@ const Vita = ({ email, name, profession, image, timelineEvents }: any) => {
                   {index < timelineEvents.length - 1 && <TimelineConnector />}
                 </TimelineSeparator>
                 <TimelineContent>
-                  {event.leistungsphase}
-                  <br />
-                  {event.projekt}
-                  <br />
-                  {event.partner}
-                  <br />
-                  {event.rendering}
-                  <br />
-                  <br />
-                  <br />
+                  <div className={styles.rightContent}>
+                    {event.leistungsphase}
+                    <br />
+                    {event.projekt}
+                    <br />
+                    {event.partner}
+                    <br />
+                    {event.rendering}
+                    <br />
+                    <br />
+                    <br />
+                  </div>
                 </TimelineContent>
               </TimelineItem>
             ))}
