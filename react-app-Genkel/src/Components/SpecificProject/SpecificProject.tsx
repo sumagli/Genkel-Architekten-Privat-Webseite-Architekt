@@ -66,7 +66,7 @@ export default function SpecificProject({ projects }: ProjectsArray) {
           </h3>
         )}
         {singleProject?.BeschreibungMaßnahme && (
-          <h3 className={styles.serviceSection}>
+          <h3 className={styles.expertiseSection}>
             Beschreibung Maßnahme: {singleProject?.BeschreibungMaßnahme}
           </h3>
         )}

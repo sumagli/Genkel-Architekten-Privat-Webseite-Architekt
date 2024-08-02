@@ -214,7 +214,7 @@ function App() {
               <Vita
                 email={"genkel@genkelarchitekten.com"}
                 name={"Jörn Genkel"}
-                profession={"Architekt - Dipl. Ing. (FH)rin"}
+                profession={"Architekt - Dipl. Ing. (FH)"}
                 image={Lebenslauf}
                 timelineEvents={joernTimeline}
               />
