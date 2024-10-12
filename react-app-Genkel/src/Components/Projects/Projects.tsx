@@ -10,7 +10,7 @@ export default function Projects({ projects }: ProjectsArray) {
       (project) => project.title === title
     );
     const singleProject = specificProject[0];
-    console.log(singleProject);
+
     if (singleProject.direktLink === "") {
       window.location.href = `/projekte/${title}`;
     } else {

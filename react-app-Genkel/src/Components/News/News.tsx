@@ -32,7 +32,7 @@ interface NewsProps {
 const News: React.FC<NewsProps> = ({ newsData }) => {
   const [showAll, setShowAll] = useState(false); // State to manage whether all news items should be shown
   const [visibleCount, setVisibleCount] = useState(3); // Initialize visibleCount to 3 to show the first three news items by default
-
+  console.log(!showAll);
   useEffect(() => {
     if (showAll) {
       const interval = setInterval(() => {
@@ -56,15 +56,15 @@ const News: React.FC<NewsProps> = ({ newsData }) => {
           <NewsItemComponent key={index} newsItem={newsItem} />
         ))}
       </div>
-      {!showAll ||
-        (newsData.length < visibleCount + 1 && (
-          <button
-            onClick={() => setShowAll(true)} // Set showAll to true when button is clicked
-            className={styles.showMoreButton}
-          >
-            Mehr anzeigen
-          </button>
-        ))}
+
+      {!showAll && newsData.length > visibleCount + 1 && (
+        <button
+          onClick={() => setShowAll(true)} // Set showAll to true when button is clicked
+          className={styles.showMoreButton}
+        >
+          Mehr anzeigen
+        </button>
+      )}
     </div>
   );
 };

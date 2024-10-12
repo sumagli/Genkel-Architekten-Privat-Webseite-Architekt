@@ -12,7 +12,6 @@ import styles from "./ImageComponent.module.css";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const ImageComponent = ({ ImageComponentProps }) => {
-  console.log(ImageComponentProps);
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = ImageComponentProps?.imagePlus?.length;
@@ -37,7 +36,7 @@ const ImageComponent = ({ ImageComponentProps }) => {
 
   const handleClick = () => {
     const helper = getTextProps();
-    console.log(helper);
+
     if (helper.direktLink == "") {
       window.location.href = `/projekte/${helper.title}`;
     } else {
